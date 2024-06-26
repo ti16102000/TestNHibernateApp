@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true"
+assembly="NHibernateApp" namespace="NHibernateApp.Models">
+	<class name="OrderItem" table="TrainingOrderItem" dynamic-update="true" >
+		<cache usage="read-write"/>
+		<id name="Id" column="Id" type="guid">
+			<generator class="guid" />
+		</id>
+		<!--<property name="OrderId" column="Order_ID_FK" insert="false" update="false"/>-->
+		<property name="ProductSku" not-null="true"/>
+		<property name="ItemPrice"/>
+
+		<many-to-one name ="Order" class ="Order" column ="Order_ID_FK" not-null="true" insert="false" update="false" cascade="save-update"></many-to-one>
+	</class>
+</hibernate-mapping>

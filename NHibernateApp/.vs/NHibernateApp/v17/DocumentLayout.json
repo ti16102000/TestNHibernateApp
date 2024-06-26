@@ -1,0 +1,124 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\SO\\TrainingORMApp\\NHibernateApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|e:\\so\\trainingormapp\\nhibernateapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|e:\\so\\trainingormapp\\nhibernateapp\\nhibernateapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|solutionrelative:nhibernateapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|e:\\so\\trainingormapp\\nhibernateapp\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|solutionrelative:repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|e:\\so\\trainingormapp\\nhibernateapp\\models\\nhibernate\\orderitem.mapping.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|solutionrelative:models\\nhibernate\\orderitem.mapping.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|e:\\so\\trainingormapp\\nhibernateapp\\models\\nhibernate\\order.mapping.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|solutionrelative:models\\nhibernate\\order.mapping.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|e:\\so\\trainingormapp\\nhibernateapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29DF27AC-E6F3-434C-BEEF-63B0F800B854}|NHibernateApp.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAcwBwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T14:06:31.848Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAAABIAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-25T14:11:27.655Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Repositories\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\OrderRepository.cs",
+              "ToolTip": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Repositories\\OrderRepository.cs",
+              "RelativeToolTip": "Repositories\\OrderRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAuwBcAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T13:43:50.138Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NHibernateApp",
+              "DocumentMoniker": "E:\\SO\\TrainingORMApp\\NHibernateApp\\NHibernateApp.csproj",
+              "RelativeDocumentMoniker": "NHibernateApp.csproj",
+              "ToolTip": "E:\\SO\\TrainingORMApp\\NHibernateApp\\NHibernateApp.csproj",
+              "RelativeToolTip": "NHibernateApp.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-26T15:27:42.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Order.mapping.xml",
+              "DocumentMoniker": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Models\\NHibernate\\Order.mapping.xml",
+              "RelativeDocumentMoniker": "Models\\NHibernate\\Order.mapping.xml",
+              "ToolTip": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Models\\NHibernate\\Order.mapping.xml",
+              "RelativeToolTip": "Models\\NHibernate\\Order.mapping.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-06-26T15:11:12.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderItem.mapping.xml",
+              "DocumentMoniker": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Models\\NHibernate\\OrderItem.mapping.xml",
+              "RelativeDocumentMoniker": "Models\\NHibernate\\OrderItem.mapping.xml",
+              "ToolTip": "E:\\SO\\TrainingORMApp\\NHibernateApp\\Models\\NHibernate\\OrderItem.mapping.xml",
+              "RelativeToolTip": "Models\\NHibernate\\OrderItem.mapping.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAB3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-06-26T15:10:51.973Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
