@@ -4,6 +4,6 @@
     {
         public virtual Guid Id { get; set; }
         public virtual string OrderNumber { get; set; }
-        public virtual ICollection<OrderItem> OrderItems { get; set; } = new HashSet<OrderItem>();
+        public virtual IList<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
 }

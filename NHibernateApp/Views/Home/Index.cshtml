@@ -202,17 +202,17 @@
                 }
             });
             var isDeleteOrder = idTable === "orderTable";
+            var orderId = $("#orderTable .text-danger").attr("data-orderId");
             $.ajax({
                 url: 'api/Home/DeleteOrdersOrItems',
                 type: 'POST',
                 cache: false,
-                data: { guidIds: guidIds, isDeleteOrder: isDeleteOrder }
+                data: { guidIds: guidIds, orderId: orderId, isDeleteOrder: isDeleteOrder }
             }).done(function (result) {
                 if (result.success) {
                     alert("Remove Successfully!");
                     if (idTable === "orderItemTable") {
-                        var orderNumber = $("#orderTable .text-danger").attr("data-ordernumber");
-                        sessionStorage.setItem('orderNumberSaved', orderNumber);
+                        sessionStorage.setItem('orderIdSaved', orderId);
                     }                    
                     location.reload();
                 } else {
@@ -329,9 +329,9 @@
                 alert("Product Sku is a required field!");
                 return;
             }
+            var orderId = $('#formUpdateItem div input[attr-name="orderId"]').val();
             var orderItem = {
                 Id: $('#formUpdateItem div input[attr-name="id"]').val(),
-                OrderId: $('#formUpdateItem div input[attr-name="orderId"]').val(),
                 ProductSku: productSku,
                 itemPrice: $('#formUpdateItem div input[attr-name="itemPrice"]').val().replace(",","")
             }
@@ -339,11 +339,11 @@
                 url: 'api/Home/UpdateOrderItem',
                 type: 'POST',
                 cache: false,
-                data: { orderItem: orderItem}
+                data: { orderItem: orderItem, orderId: orderId}
             }).done(function (result) {
                 if (result.success) {
                     alert("Successfully!");
-                    sessionStorage.setItem('orderIdSaved', orderItem.Id);
+                    sessionStorage.setItem('orderIdSaved', orderId);
                     location.reload();
                 } else {
                     alert(result.message);

@@ -11,15 +11,12 @@ namespace NHibernateApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IOrderRepository _orderRepository;
-        private readonly IOrderItemRepository _orderItemRepository;
 
         public HomeController(ILogger<HomeController> logger
-            , IOrderRepository orderRepository
-            , IOrderItemRepository orderItemRepository)
+            , IOrderRepository orderRepository)
         {
             _logger = logger;
             _orderRepository = orderRepository;
-            _orderItemRepository = orderItemRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -31,7 +28,17 @@ namespace NHibernateApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOrderItems(Guid orderId, string orderNumber)
         {
-            var orderItems = await _orderItemRepository.GetOrderItemsAsync(orderId, orderNumber);
+            var orderItems = new List<OrderItem>();
+            if (!string.IsNullOrEmpty(orderNumber))
+            {
+                var order = await _orderRepository.GetByOrderNumberAsync(orderNumber);
+                orderItems = order?.OrderItems.ToList();
+            }
+            else
+            {
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                orderItems = order?.OrderItems.ToList();
+            }
             return PartialView("PartialOrderItems", orderItems);
         }
         [HttpPost]
@@ -40,27 +47,13 @@ namespace NHibernateApp.Controllers
         {
             try
             {
-                var res = await _orderRepository.AddOrderAndItemsAsync(order);
-                if (!res) return Json(new ApiResponse("Order number exists!"));
+                var res = await _orderRepository.AddOrderAndItemsAsync(order, isUpdate);
+                //check if update
+                if (!res && !isUpdate) return Json(new ApiResponse("Order number exists!"));
+                //check if create
+                if (!res && isUpdate) return Json(new ApiResponse("This order no longer exists!"));
 
                 return Json(new ApiResponse());
-                //handle add order and order items
-                //if (!isUpdate)
-                //{
-                //    var res = await _orderRepository.AddOrderAndItemsAsync(order);
-                //    if (!res) return Json(new ApiResponse("Order number exists!"));
-
-                //    return Json(new ApiResponse());
-                //}
-
-                //handle update order and order items
-                //var resUpdateOrder = await _orderRepository.UpdateAsync(order);
-                //if (resUpdateOrder == null) return Json(new ApiResponse("This order no longer exists"));
-
-                //var resUpdateItems = await _orderItemRepository.AddOrUpdateItemsAsync(order.OrderItems, order.Id);
-                //if (!resUpdateItems) return Json(new ApiResponse("Something occurs error!"));
-
-                //return Ok(new ApiResponse());
             }
             catch (Exception ex) {
                 return Json(new ApiResponse(ex.Message));
@@ -70,26 +63,20 @@ namespace NHibernateApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOrderItemsForm(Guid orderId)
         {
-            var orderItems = await _orderItemRepository.GetOrderItemsAsync(orderId);
+            var order = await _orderRepository.GetByIdAsync(orderId);
+            var orderItems = order?.OrderItems.ToList();
             return PartialView("PartialOrderItemsForm", orderItems);
         }
         [HttpPost]
         [Route("api/Home/DeleteOrdersOrItems")]
-        public async Task<IActionResult> DeleteOrdersOrItems(List<Guid> guidIds, bool isDeleteOrder)
+        public async Task<IActionResult> DeleteOrdersOrItems(List<Guid> guidIds, Guid orderId, bool isDeleteOrder)
         {
             try
             {
                 if(guidIds == null || !guidIds.Any()) return Json(new ApiResponse("Missing data"));
-                if (isDeleteOrder)
-                {
-                    var res =  await _orderRepository.DeleteAsync(guidIds);
-                    if(!res) return Json(new ApiResponse("Something occurs error!"));
-                }
-                else
-                {
-                    var res = await _orderItemRepository.DeleteAsync(guidIds);
-                    if (!res) return Json(new ApiResponse("Something occurs error!"));
-                }
+                var res = await _orderRepository.DeleteAsync(guidIds, orderId, isDeleteOrder);
+                if (!res) return Json(new ApiResponse("Something occurs error!"));
+
                 return Ok(new ApiResponse());
             }
             catch (Exception ex)
@@ -99,13 +86,21 @@ namespace NHibernateApp.Controllers
         }
         [HttpPost]
         [Route("api/Home/UpdateOrderItem")]
-        public async Task<IActionResult> UpdateOrderItem(OrderItem orderItem)
+        public async Task<IActionResult> UpdateOrderItem(OrderItem orderItem, Guid orderId)
         {
             try
             {
-                var res = _orderItemRepository.Update(orderItem);
-                
-                if(res == null) return Json(new ApiResponse("This item no longer exists"));
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                if (order == null) return Json(new ApiResponse("This order no longer exists"));
+
+                var item = order.OrderItems.FirstOrDefault(x=> x.Order.Id == orderId);
+                if (item == null) return Json(new ApiResponse("This item no longer exists"));
+
+                item.ProductSku = orderItem.ProductSku;
+                item.ItemPrice = orderItem.ItemPrice;
+
+                var res = await _orderRepository.AddOrderAndItemsAsync(order, true);
+                if (!res) return Json(new ApiResponse("Something occurs error!"));
 
                 return Ok(new ApiResponse());
             }

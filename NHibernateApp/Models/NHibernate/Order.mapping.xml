@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true"
-assembly="NHibernateApp" namespace="NHibernateApp.Models">
-	<class name="Order" table="TrainingOrder" dynamic-update="true" >
-		<cache usage="read-write"/>
-		<id name="Id" column="Id" type="guid">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+					assembly="NHibernateApp" 
+				   namespace="NHibernateApp.Models">
+	<class name="Order" table="TrainingOrder">
+		<id name="Id" column="Id" type="Guid">
 			<generator class="guid" />
 		</id>
 		<property name="OrderNumber" not-null="true"/>
 
-		<set name ="OrderItems" table ="TrainingOrderItem" inverse="true" cascade="all-delete-orphan">
-			<key column = "Order_ID_FK" not-null="true"/>
+		<bag name ="OrderItems" table ="TrainingOrderItem" inverse="true" cascade="all-delete-orphan">
+			<key column = "Order_ID_FK"/>
 			<one-to-many class = "OrderItem"/>
-		</set>	
+		</bag>	
 	</class>
 </hibernate-mapping>
